@@ -23,6 +23,17 @@ $ yarn run t2
     'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD failed: custom program error: 0xa1'
   ]
 
+0xa1 in hex is 161 in decimal
+
+May I know how how to search for the error code here
+
+https://www.notion.so/Debugging-Custom-Anchor-Errors-b8540dd418c44a4e939ab17c56a3fd3b
+
+https://github.com/project-serum/anchor/blob/master/lang/src/error.rs
+
+but I could not find the error code for 161...
+
+
 ------------------== modification from the tutorial:
 
 ----------== setup environment
