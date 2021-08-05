@@ -2,7 +2,28 @@
 
 ## dog-money
 
-modification from the tutorial:
+------------------== To Run
+
+$ git clone https://github.com/AuroraLantean/SolanaAnchorDemo1
+
+$ yarn install
+
+$ yarn run t1
+
+... this should give you a successful test result
+
+$ yarn run t2
+
+... this will give you an error
+
+  logs: [
+    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD invoke [1]',
+    'Program log: Custom program error: 0xa1',
+    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD consumed 5320 of 200000 compute units',
+    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD failed: custom program error: 0xa1'
+  ]
+
+------------------== modification from the tutorial:
 
 ----------== setup environment
 
