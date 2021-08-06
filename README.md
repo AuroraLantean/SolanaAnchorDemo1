@@ -14,24 +14,17 @@ $ yarn run t1
 
 $ yarn run t2
 
-... this will give you an error
+... this should give you a successful test result
 
-  logs: [
-    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD invoke [1]',
-    'Program log: Custom program error: 0xa1',
-    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD consumed 5320 of 200000 compute units',
-    'Program CKnr221MdQiQbSi8ZCJWQty3dqyghprYDFLmBEXkexkD failed: custom program error: 0xa1'
-  ]
-
+------------------== Debug
+Find the error code
 0xa1 in hex is 161 in decimal
 
-May I know how how to search for the error code here
+Search for the error code here:
 
 https://www.notion.so/Debugging-Custom-Anchor-Errors-b8540dd418c44a4e939ab17c56a3fd3b
 
 https://github.com/project-serum/anchor/blob/master/lang/src/error.rs
-
-but I could not find the error code for 161...
 
 
 ------------------== modification from the tutorial:
@@ -66,6 +59,27 @@ anchor-lang = { path = "../../../../lang" }
 
 anchor-spl = { path = "../../../../spl" }
 
+----------== update Rust code
+#[derive(Accounts)]
+pub struct InitializeUser<'info> {
+    program_signer: AccountInfo<'info>,
+    #[account(associated = authority, with = usdc_mint, init)]
+    ...
+}
+
+#[associated]
+pub struct UserData {
+    pub first_deposit: i64,
+}
+impl Default for UserData {
+  fn default() -> UserData { 
+    UserData{
+      __nonce: 0,
+      first_deposit: 0,
+    }
+  }
+}
+
 ----------== update JS code
 
 const provider = anchor.Provider.local();
@@ -75,10 +89,3 @@ anchor.setProvider(provider);
 program.provider -> provider
 
 const usdcMint = await createMint(provider);//deleted: ,provider.wallet.publicKey
-
-const dataAccount = anchor.web3.Keypair.generate();
-
-await program.rpc.initializeUser(.. {},
-      signers: [dataAccount],
-      //instructions: [await program.account.dataAccount.//createInstruction(dataAccount)],
-)

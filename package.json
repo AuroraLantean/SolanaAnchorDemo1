@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "root": "cd /mnt/sda5/0Programming/Solana/anchor2",
     "t1": "cd meme-num; anchor test",
     "t2": "cd dog-money; anchor test"
   },

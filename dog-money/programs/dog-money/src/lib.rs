@@ -39,7 +39,7 @@ pub mod dog_money {
 #[derive(Accounts)]
 pub struct InitializeUser<'info> {
     program_signer: AccountInfo<'info>,
-    #[account(associated = authority, with = usdc_mint)]
+    #[account(associated = authority, with = usdc_mint, init)]
     user_data: ProgramAccount<'info, UserData>,
     #[account(signer)]
     authority: AccountInfo<'info>,
@@ -62,7 +62,18 @@ pub struct InitializeUser<'info> {
 }
 
 
+//#[account(seeds = [authority])]
+//#[account(seeds)]
+//#[account(seeds = [authority, usdc_mint])]
 #[associated]
 pub struct UserData {
     pub first_deposit: i64,
+}
+impl Default for UserData {
+  fn default() -> UserData { 
+    UserData{
+      __nonce: 0,
+      first_deposit: 0,
+    }
+  }
 }
