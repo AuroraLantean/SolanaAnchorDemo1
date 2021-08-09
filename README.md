@@ -1,33 +1,35 @@
 # SolanaAnchorDemo1
 
-## dog-money
+## To Install and Run
 
-------------------== To Run
+Install Node
 
-$ git clone https://github.com/AuroraLantean/SolanaAnchorDemo1
+Install Rust
+
+https://www.rust-lang.org/tools/install
+
+Install Solana Tool Suite
+
+https://docs.solana.com/cli/install-solana-cli-tools
+
+Install Mocha
+
+https://github.com/mochajs/mocha
+$ yarn global add mocha
+
+Install Anchor
+
+$ cargo install --git https://github.com/project-serum/anchor --tag v0.12.0 anchor-cli --locked
+
+On Linux systems you may need to install additional dependencies if cargo install fails. On Ubuntu,
+$ sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y pkg-config build-essential libudev-dev
 
 $ yarn install
 
-$ yarn run t1
-
-... this should give you a successful test result
-
-$ yarn run t2
-
-... this should give you a successful test result
-
-------------------== Debug
-Find the error code
-0xa1 in hex is 161 in decimal
-
-Search for the error code here:
-
-https://www.notion.so/Debugging-Custom-Anchor-Errors-b8540dd418c44a4e939ab17c56a3fd3b
-
-https://github.com/project-serum/anchor/blob/master/lang/src/error.rs
+$ yarn run p3 ... for staking USDC to mint Dragon-Coin
 
 
-------------------== modification from the tutorial:
+## modification from the Anchor tutorial:
 
 ----------== setup environment
 

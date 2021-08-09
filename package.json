@@ -1,7 +1,13 @@
 {
+  "name": "anchor-demo1",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
   "scripts": {
-    "t1": "cd meme-num; anchor test",
-    "t2": "cd dog-money; anchor test"
+    "p1": "cd meme-num; anchor test",
+    "p2": "cd dog-money; anchor test",
+    "p3": "cd dragon-coin; anchor test"
   },
   "dependencies": {
     "@project-serum/anchor": "^0.12.0",
